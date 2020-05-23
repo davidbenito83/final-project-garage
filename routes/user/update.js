@@ -16,6 +16,8 @@ router.post("/:id", async (req, res) => {
 
     const userDB = await User.findByIdAndUpdate(id, userdata, options);
 
+    userDB.save();
+
     res.json({ userDB });
   } catch (error) {
     console.log(error);

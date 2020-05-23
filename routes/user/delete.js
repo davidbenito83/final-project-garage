@@ -8,8 +8,10 @@ router.delete("/:id", async (req, res) => {
   const { id } = req.params;
 
   try {
-    const deletedUser = await User.findByIdAndUpdate(id, { state: false });
+    const deletedUser = await User.findByIdAndUpdate(id);
+    deletedUser.delete();
     res.json({ deletedUser });
+    res.status(200).redirect('http://localhost:3000/users');
   } catch (error) {
     console.log(error);
     res.status(400).json(error);
