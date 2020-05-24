@@ -8,7 +8,6 @@ router.post("/", async (req, res) => {
 
   try {
     const user = new User({ name, password, role, email });
-    console.log(user);
 
     const userDB = await user.save();
 
