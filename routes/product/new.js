@@ -26,9 +26,8 @@ router.post("/", async (req, res) => {
   try {
     await product.save();
 
-    res.status(200).json({ message: "Creado el producto en base de datos" });
-
-    // res.redirect("/users");
+    //res.status(200).json({ message: "Creado el producto en base de datos" });
+    res.status(200).redirect('http://localhost:3000/products');
   } catch (error) {
     console.log(error);
     res.status(500).json({ message: "Hubo un problema al crear el producto en base de datos" });
