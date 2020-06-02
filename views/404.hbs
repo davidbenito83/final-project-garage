@@ -1,0 +1,21 @@
+{{#if name}}
+<h1>Hola {{name}}</h1>
+
+{{else}}
+<h1>Hola sin nombre</h1>
+{{/if}}
+
+<ul>
+    {{#each cities}}
+    <li>{{this}}</li>
+    {{/each}}
+
+</ul>
+
+{{#unless name}}
+<h1>No hay un nombre enviado</h1>
+
+{{else}}
+
+<h1>{{name}}</h1>
+{{/unless}}

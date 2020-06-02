@@ -1,4 +1,3 @@
-
 const Express = require("express");
 const router = Express.Router();
 const User = require("../../models/User");

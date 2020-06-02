@@ -2,12 +2,13 @@ const Express = require("express");
 const router = Express.Router();
 const Product = require("../../models/Product");
 
-router.get("/", async (req, res) => {
+router.get("/:userAssoc", async (req, res) => {
+  const { userAssoc } = req.params;
 
   try {
-    const productDB = await Product.find({})
+    const productDetailDB = await Product.find({userAssoc})
 
-    res.json({ productDB });
+    res.json( productDetailDB );
   } catch (error) {
     console.log(error);
     res.status(400).json(error);
