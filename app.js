@@ -35,6 +35,7 @@ app.use("/", require("./routes"));
 
 app.use("/users", require("./routes/user"));
 app.use("/products", require("./routes/product"));
+app.use("/repairs", require("./routes/repair"));
 app.use("/auth", require("./routes/auth"));
 app.use("/userAccess", require("./routes/userAccess"));
 app.use("/adminAccess", require("./routes/adminAccess"));
