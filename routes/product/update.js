@@ -5,8 +5,8 @@ const Product = require("../../models/Product");
 router.post("/:id", async (req, res) => {
   const { id } = req.params;
 
-  const { name, image, description, state, userAssoc, quantity } = req.body;
-  const productdata = { name, image, description, state, userAssoc, quantity };
+  const { name, image, description, state, userAssoc, quantity, price, sellPrice } = req.body;
+  const productdata = { name, image, description, state, userAssoc, quantity, price, sellPrice };
 
   try {
 

@@ -20,6 +20,14 @@ const productSchema = new Schema({
     type: Number,
     required: [true, "Cantidad es obligatorio"]
   },
+  price: {
+    type: Number,
+    required: [true, "Precio unitario es obligatorio"]
+  },
+  sellPrice: {
+    type: Number,
+    required: [true, "Precio de venta es obligatorio"]
+  },
   state: {
     type: Boolean,
     default: true

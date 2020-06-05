@@ -12,6 +12,10 @@ const repairSchema = new Schema({
     type: String,
     required: [true, "Descripción es obligatorio"],
   },
+  carRegistration: {
+    type: String,
+    required: [true, "Matrícula es obligatorio"],
+  },
   image: {
     type: String,
     required: [true, "Imagen es obligatorio"]

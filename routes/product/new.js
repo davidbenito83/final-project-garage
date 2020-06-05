@@ -3,7 +3,7 @@ const router = Express.Router();
 const Product = require("../../models/Product");
 
 router.post("/", async (req, res) => {
-  const { name, description, image, quantity, state, userAssoc } = req.body;
+  const { name, description, image, quantity, price, sellPrice, state, userAssoc } = req.body;
 
   try {
     const product = await Product.findOne({ image });
@@ -19,6 +19,8 @@ router.post("/", async (req, res) => {
     description,
     image,
     quantity,
+    price,
+    sellPrice,
     state,
     userAssoc
   });

@@ -3,12 +3,13 @@ const router = Express.Router();
 const Repair = require("../../models/Repair");
 
 router.post("/", async (req, res) => {
-  const { name, description, image, time, state, userAssoc } = req.body;
+  const { name, description, image, carRegistration, time, state, userAssoc } = req.body;
 
   const repair = new Repair({
     name,
     description,
     image,
+    carRegistration,
     time,
     state,
     userAssoc
