@@ -5,8 +5,8 @@ const Repair = require("../../models/Repair");
 router.post("/:id", async (req, res) => {
   const { id } = req.params;
 
-  const { name, image, description, state, userAssoc, time } = req.body;
-  const repairdata = { name, image, description, state: false, userAssoc, time };
+  const { name, image, description, carRegistration, contactNumber, userAssoc, time } = req.body;
+  const repairdata = { name, image, description, carRegistration, contactNumber, state: false, userAssoc, time };
 
   try {
 
