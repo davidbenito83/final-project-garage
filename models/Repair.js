@@ -36,6 +36,10 @@ const repairSchema = new Schema({
     type: String,
     required: [true, "User es obligatorio"]
   },
+  productsAssoc: {
+    type: Object,
+    required: [true, "User es obligatorio"]
+  },
   date: {
     type: Date,
     default: Date.now
