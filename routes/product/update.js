@@ -14,8 +14,8 @@ router.post("/:id", async (req, res) => {
 
     productDB.save();
 
-    res.status(200).redirect('http://localhost:3000/products');
-    //res.json({ productDB });
+    res.json({data:productDB}).status(200).redirect('http://localhost:3000/products');
+
   } catch (error) {
     console.log(error);
     res.status(400).json(error);

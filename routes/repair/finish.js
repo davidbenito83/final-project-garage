@@ -14,8 +14,7 @@ router.post("/:id", async (req, res) => {
 
     repairDB.save();
 
-    res.status(200).redirect('http://localhost:3000/repairs');
-    //res.json({ productDB });
+    res.json({ repairDB }).status(200).redirect('http://localhost:3000/repairs');
 
   } catch (error) {
     console.log(error);

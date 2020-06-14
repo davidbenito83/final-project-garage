@@ -23,7 +23,7 @@ router.post("/:id", async (req, res) => {
 
     userDB.save();
 
-    res.status(200).redirect('http://localhost:3000/users');
+    res.json({data:userDB}).status(200).redirect('http://localhost:3000/users');
 
   } catch (error) {
     console.log(error);

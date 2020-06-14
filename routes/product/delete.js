@@ -10,8 +10,7 @@ router.delete("/:id", async (req, res) => {
   try {
     const deletedProduct = await Product.findByIdAndUpdate(id);
     deletedProduct.delete();
-    res.json({ deletedProduct });
-    res.status(200).redirect('http://localhost:3000/products');
+    res.json({ data: deletedProduct }).status(200).redirect('http://localhost:3000/products');
   } catch (error) {
     console.log(error);
     res.status(400).json(error);
