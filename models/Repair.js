@@ -10,7 +10,7 @@ const repairSchema = new Schema({
   },
   description: {
     type: String,
-    required: [true, "Descripción es obligatorio"],
+    required: [false, "Descripción es obligatorio"],
   },
   carRegistration: {
     type: String,
@@ -38,7 +38,7 @@ const repairSchema = new Schema({
   },
   productsAssoc: {
     type: Object,
-    required: [true, "User es obligatorio"]
+    required: [false, "Productos asociados"]
   },
   date: {
     type: Date,

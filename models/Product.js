@@ -10,7 +10,7 @@ const productSchema = new Schema({
   },
   description: {
     type: String,
-    required: [true, "Descripción es obligatorio"],
+    required: false,
   },
   image: {
     type: String,
@@ -34,7 +34,7 @@ const productSchema = new Schema({
   },
   userAssoc: {
     type: String,
-    required: [true, "User es obligatorio"]
+    required: false
   },
   date: {
     type: Date,
