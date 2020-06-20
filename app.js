@@ -11,6 +11,7 @@ const MongoStore = require("connect-mongo")(session);
 
 const hbs = require("hbs")
 
+
 app.use(Express.static(__dirname + "/public"));
 app.set("views", __dirname + "/views");
 app.set("view engine", "hbs");

@@ -3,6 +3,7 @@ const router = Express.Router();
 const Product = require("../../models/Product");
 
 router.post("/", async (req, res) => {
+
   const { name, description, image, quantity, price, sellPrice, state, userAssoc } = req.body;
 
   try {

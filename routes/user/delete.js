@@ -5,6 +5,7 @@ const User = require("../../models/User");
 
 
 router.delete("/:id", async (req, res) => {
+
   const { id } = req.params;
 
   try {

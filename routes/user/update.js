@@ -26,6 +26,7 @@ router.post("/:id", async (req, res) => {
     res.json({data:userDB}).status(200).redirect('http://localhost:3000/users');
 
   } catch (error) {
+
     console.log(error);
     res.status(400).json(error);
   }

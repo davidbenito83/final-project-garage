@@ -4,6 +4,7 @@ const router = Express.Router();
 const User = require("../../models/User");
 
 router.post("/", async (req, res) => {
+
   const { name, password, role, email } = req.body;
 
   try {
