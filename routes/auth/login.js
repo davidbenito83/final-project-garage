@@ -10,14 +10,16 @@ router.post("/", async (req, res) => {
   try {
     const user = await User.findOne({ email });
 
-    if (!user) return res.status(200).json({ error: "el usuario no existe" });
+    if (!user)
+    {
+      return res.redirect(401,'http://localhost:3000/login') ;
+    }
 
     const passwordDB = user.password;
 
-    if (!bcrypt.compareSync(password, passwordDB))
-      return res.status(200).json({ error: "La contraseña no es correcta" });
+    if (!bcrypt.compareSync(password, passwordDB)) return res.redirect(401,'http://localhost:3000/login');
 
-      return res.status(200).redirect('http://localhost:3000/dashboard');
+      return res.status(301).redirect('http://localhost:3000/dashboard');
 
   } catch (error) {
     console.log(error);
