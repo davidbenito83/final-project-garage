@@ -2,7 +2,7 @@
 const Express = require("express");
 const router = Express.Router();
 const User = require("../../models/User");
-
+const config = require("../config")
 
 router.delete("/:id", async (req, res) => {
 
@@ -11,7 +11,7 @@ router.delete("/:id", async (req, res) => {
   try {
     const deletedUser = await User.findByIdAndUpdate(id);
     deletedUser.delete();
-    res.json({ data: deletedUser }).status(200).redirect('http://localhost:3000/users');
+    res.json({ data: deletedUser }).status(200).redirect(config.buildFrontUrlFor('users'));
   } catch (error) {
     console.log(error);
     res.status(400).json(error);

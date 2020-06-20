@@ -2,7 +2,7 @@
 const Express = require("express");
 const router = Express.Router();
 const Product = require("../../models/Product");
-
+const config = require("../config")
 
 router.delete("/:id", async (req, res) => {
 
@@ -11,7 +11,7 @@ router.delete("/:id", async (req, res) => {
   try {
     const deletedProduct = await Product.findByIdAndUpdate(id);
     deletedProduct.delete();
-    res.json({ data: deletedProduct }).status(200).redirect('http://localhost:3000/products');
+    res.json({ data: deletedProduct }).status(200).redirect(config.buildFrontUrlFor('products'));
   } catch (error) {
     console.log(error);
     res.status(400).json(error);

@@ -2,6 +2,7 @@ const Express = require("express");
 const router = Express.Router();
 const User = require("../../models/User");
 const bcrypt = require("bcryptjs");
+const config = require("../config")
 
 router.post("/:id", async (req, res) => {
 
@@ -23,7 +24,7 @@ router.post("/:id", async (req, res) => {
 
     userDB.save();
 
-    res.json({data:userDB}).status(200).redirect('http://localhost:3000/users');
+    res.json({data:userDB}).status(200).redirect(config.buildFrontUrlFor('users'));
 
   } catch (error) {
 

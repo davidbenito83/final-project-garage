@@ -2,6 +2,7 @@ const bcrypt = require("bcryptjs");
 const Express = require("express");
 const router = Express.Router();
 const User = require("../../models/User");
+const config = require("../config")
 
 router.post("/", async (req, res) => {
 
@@ -32,7 +33,7 @@ router.post("/", async (req, res) => {
 
     const userDB = await user.save();
 
-    res.status(200).redirect('http://localhost:3000/users');
+    res.status(200).redirect(config.buildFrontUrlFor('users'));
 
   } catch (error) {
     console.log(error);

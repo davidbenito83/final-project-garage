@@ -1,6 +1,7 @@
 const Express = require("express");
 const router = Express.Router();
 const Product = require("../../models/Product");
+const config = require("../config")
 
 router.post("/", async (req, res) => {
 
@@ -30,10 +31,10 @@ router.post("/", async (req, res) => {
     await product.save();
 
     //res.status(200).json({ message: "Creado el producto en base de datos" });
-    res.status(200).redirect('http://localhost:3000/products').json({ message: "Creado el producto en base de datos" });
+    res.status(200).redirect(config.buildFrontUrlFor('products')).json({ message: "Creado el producto en base de datos" });
   } catch (error) {
     console.log(error);
-    res.status(500).redirect('http://localhost:3000/products').json({ message: "Hubo un problema al crear el producto en base de datos" });
+    res.status(500).redirect(config.buildFrontUrlFor('products')).json({ message: "Hubo un problema al crear el producto en base de datos" });
   }
 });
 

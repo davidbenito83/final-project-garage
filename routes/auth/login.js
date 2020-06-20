@@ -3,6 +3,7 @@ const bcrypt = require("bcryptjs");
 
 const router = Express.Router();
 const User = require("../../models/User");
+const config = require("../config")
 
 router.post("/", async (req, res) => {
 
@@ -11,16 +12,15 @@ router.post("/", async (req, res) => {
   try {
     const user = await User.findOne({ email });
 
-    if (!user)
-    {
-      return res.redirect(401,'http://localhost:3000/login') ;
+    if (!user) {
+      return res.redirect(401, config.buildFrontUrlFor('login'));
     }
 
     const passwordDB = user.password;
 
-    if (!bcrypt.compareSync(password, passwordDB)) return res.redirect(401,'http://localhost:3000/login');
+    if (!bcrypt.compareSync(password, passwordDB)) return res.redirect(401, config.buildFrontUrlFor('login'));
 
-      return res.status(301).redirect('http://localhost:3000/products');
+    return res.status(301).redirect(config.buildFrontUrlFor('products'));
 
   } catch (error) {
     console.log(error);

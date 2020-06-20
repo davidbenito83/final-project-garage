@@ -1,6 +1,7 @@
 const Express = require("express");
 const router = Express.Router();
 const Repair = require("../../models/Repair");
+const config = require("../config")
 
 router.post("/:id", async (req, res) => {
 
@@ -15,7 +16,7 @@ router.post("/:id", async (req, res) => {
 
     repairDB.save();
 
-    res.json({ repairDB }).status(200).redirect('http://localhost:3000/repairs');
+    res.json({ repairDB }).status(200).redirect(config.buildFrontUrlFor('repairs'));
 
   } catch (error) {
     console.log(error);
