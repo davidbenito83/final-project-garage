@@ -19,7 +19,7 @@ router.post("/", async (req, res) => {
 
     if (!bcrypt.compareSync(password, passwordDB)) return res.redirect(401,'http://localhost:3000/login');
 
-      return res.status(301).redirect('http://localhost:3000/dashboard');
+      return res.status(301).redirect('http://localhost:3000/products');
 
   } catch (error) {
     console.log(error);
