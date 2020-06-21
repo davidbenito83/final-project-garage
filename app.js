@@ -5,9 +5,9 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const path = require('path');
 const SERVER_PORT = process.env.SERVER_PORT || 5000;
-const DB_PORT = process.env.DB_PORT;
-const DB_HOST = process.env.DB_HOST;
-const DB_GARAGE = process.env.DB_GARAGE;
+const DB_PORT = process.env.DB_PORT || 27017;
+const DB_HOST = process.env.DB_HOST || "localhost";
+const DB_GARAGE = process.env.DB_GARAGE || "garage-app";
 
 const session = require("express-session");
 const MongoStore = require("connect-mongo")(session);
@@ -57,12 +57,8 @@ mongoose
     });
 
 app.get('*', (req,res) =>{
-    res.sendFile(path.join(__dirname+'/client/build/index.html'));
+  res.sendFile(path.join(__dirname+'/client/build/index.html'));
 })
-
-app.get('*', (req,res) =>{
-    res.sendFile(path.join(__dirname+'/client/build/index.html'));
-})  
 
 app.use((req, res) => {
     res.render("404");
